@@ -1,3 +1,7 @@
+import CreateUser from "../features/User/createUser"
+
 export default function HomePage(){
-    return <div>Welcome Home</div>
+    return <div>
+        <CreateUser />
+    </div>
 }

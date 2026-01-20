@@ -1,0 +1,44 @@
+import { useNavigate } from "react-router"
+
+export default function NavBar(){
+    const navigate = useNavigate()
+
+    return (
+        <div className="w-full h-16 border-b border-gray-200">
+  <div className="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
+    
+    {/* Left - Username */}
+    <p className="text-lg font-semibold text-gray-900">
+      Irfan
+    </p>
+
+    {/* Right - Navigation */}
+    <div className="flex items-center gap-8">
+      
+      {/* Home */}
+      <span
+        onClick={() => navigate('/')}
+        className="relative cursor-pointer text-sm font-medium text-gray-500 transition-colors duration-300 hover:text-gray-900
+                   after:absolute after:left-0 after:-bottom-1 after:h-0.5  after:w-0 after:bg-gray-900
+                   after:transition-all after:duration-300 hover:after:w-full"
+      >
+        Home
+      </span>
+
+      {/* Order Page */}
+      <span
+        onClick={() => navigate('/orders')}
+        className="relative cursor-pointer text-sm font-medium text-gray-500 transition-colors duration-300 hover:text-gray-900
+                   after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gray-900
+                   after:transition-all after:duration-300 hover:after:w-full"
+      >
+        Orders
+      </span>
+
+    </div>
+  </div>
+</div>
+
+
+    );
+}

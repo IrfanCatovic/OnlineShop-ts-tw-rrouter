@@ -5,7 +5,7 @@ import type { AppDispatch } from "../../store";
 import { createUsername } from "./userSlice";
 
 
-export default function createUser() {
+export default function CreateUser() {
     const [username, setUsername] = useState<string>("")
     const dispatch = useDispatch<AppDispatch>();
     const navigate = useNavigate()
@@ -21,7 +21,7 @@ export default function createUser() {
     return <form onSubmit={handleUserSubmit}>
         <p>👋 Dobrodošli! Molimo vas unesite korisničko ime:</p>
         <input type="text" placeholder="Vaše korisničko ime" value={username} onChange={(e) => setUsername(e.target.value)} />
-        {!username && <button type="submit">Kreiraj korisnika</button>}
+        {username && <button type="submit">Kreiraj korisnika</button>}
 
     </form>
 }
