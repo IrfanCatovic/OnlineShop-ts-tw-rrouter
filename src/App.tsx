@@ -7,7 +7,7 @@ import OrderPage from './Pages/OrderPage'
 
 
 const router = createBrowserRouter([
-  {element: <AppLayout />,
+  { element: <AppLayout />,
     errorElement: <ErrorPage />,
 
     children: [

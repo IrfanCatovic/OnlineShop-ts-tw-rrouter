@@ -4,8 +4,8 @@ export default function NavBar(){
     const navigate = useNavigate()
 
     return (
-        <div className="w-full h-16 border-b border-gray-200">
-  <div className="max-w-7xl mx-auto h-full px-6 flex items-center justify-between">
+        <div className="max-w-360 w-full h-16 border-b  border-gray-200">
+        <div className="h-full flex items-center justify-between">
     
     {/* Left - Username */}
     <p className="text-lg font-semibold text-gray-900">
@@ -13,7 +13,7 @@ export default function NavBar(){
     </p>
 
     {/* Right - Navigation */}
-    <div className="flex items-center gap-8">
+    <div className="flex items-center mx-auto gap-8">
       
       {/* Home */}
       <span
@@ -38,7 +38,6 @@ export default function NavBar(){
     </div>
   </div>
 </div>
-
 
     );
 }
