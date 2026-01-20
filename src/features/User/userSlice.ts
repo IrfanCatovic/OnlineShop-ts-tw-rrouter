@@ -11,11 +11,11 @@ const initialState: UserState = {
     name: "user",
     initialState,
     reducers: {
-        setUsername(state: UserState, action: PayloadAction<string> ){
+        createUsername(state, action: PayloadAction<string> ){
             state.username = action.payload;
         }
     }
   })
 
-  export const { setUsername} = userSlice.actions;
+  export const { createUsername } = userSlice.actions;
     export default userSlice.reducer;
