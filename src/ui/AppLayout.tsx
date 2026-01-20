@@ -12,20 +12,22 @@ export default function AppLayout() {
 
   {/* NAVBAR – centered content */}
 
-    <div className="w-full flex justify-center bg-blue-300">
+    <div className="w-full flex justify-center ">
       <NavBar />
     </div>
 
 
 
   {/* CONTENT */}
-  <div className="overflow-y-auto flex justify-center bg-blue-700">
-    <main className="w-full max-w-360 px-6 py-8 flex bg-blue-950">
+  <div className="overflow-y-auto flex justify-center ">
+    <main className="w-full max-w-360 px-6 py-8 flex">
       <Outlet />
     </main>
   </div>
 
+
     <Footer />
+
   </div>
 
   );
