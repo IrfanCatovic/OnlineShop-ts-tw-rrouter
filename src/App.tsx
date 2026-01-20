@@ -1,5 +1,6 @@
 
 import { createBrowserRouter, RouterProvider } from 'react-router'
+import './index.css'
 import AppLayout from './ui/AppLayout'
 import ErrorPage from './Pages/ErrorPage'
 import HomePage from './Pages/HomePage'
@@ -18,7 +19,9 @@ const router = createBrowserRouter([
 ])
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <div>
+    <RouterProvider router={router} />;
+    </div>
 }
 
 export default App

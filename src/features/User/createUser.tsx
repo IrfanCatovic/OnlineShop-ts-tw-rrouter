@@ -19,9 +19,9 @@ export default function CreateUser() {
     }
 
     return (
-    <div className="  flex mx-auto justify-center h-48">
+    <div className="flex mx-auto justify-center h-48 rounded-4xl shadow-lg border-red-500">
 
-    <form onSubmit={handleUserSubmit} className="flex flex-col gap-4 max-w-md justify-center items-center border border-gray-800 p-4 rounded-lg">
+    <form onSubmit={handleUserSubmit} className="flex flex-col gap-4 max-w-md justify-center items-center">
         <p>👋 Dobrodošli! Molimo vas unesite korisničko ime:</p>
         <input type="text" placeholder="Vaše korisničko ime" value={username} onChange={(e) => setUsername(e.target.value)} />
         {username && <button type="submit">Kreiraj korisnika</button>}

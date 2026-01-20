@@ -7,7 +7,7 @@ export default function AppLayout() {
   const isLoading = navigation.state === "loading";
 
   return (
-    <div className="grid min-h-screen grid-rows-[auto_1fr_auto]">
+    <div className="grid min-h-screen grid-rows-[auto_1fr_auto] ">
   {isLoading && <div>Loading...</div>}
 
   {/* NAVBAR – centered content */}
@@ -15,8 +15,6 @@ export default function AppLayout() {
     <div className="w-full flex justify-center ">
       <NavBar />
     </div>
-
-
 
   {/* CONTENT */}
   <div className="overflow-y-auto flex justify-center ">

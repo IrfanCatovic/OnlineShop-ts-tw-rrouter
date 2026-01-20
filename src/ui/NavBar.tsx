@@ -8,7 +8,7 @@ export default function NavBar(){
         <div className="h-full flex items-center justify-between">
     
     {/* Left - Username */}
-    <p className="text-lg font-semibold text-gray-900">
+    <p className="text-lg font-semibold text-gray-900 ">
       Irfan
     </p>
 
