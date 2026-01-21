@@ -19,7 +19,7 @@ export default function CreateUser() {
     }
 
     return (
-    <div className="flex mx-auto justify-center h-48 rounded-4xl shadow-lg border-red-500">
+    <div className="flex mx-auto justify-center h-48 rounded-4xl shadow-lg border-[0.5px] border-gray-300">
 
     <form onSubmit={handleUserSubmit} className="flex flex-col gap-4 max-w-md justify-center items-center">
         <p>👋 Dobrodošli! Molimo vas unesite korisničko ime:</p>
