@@ -4,7 +4,8 @@ import './index.css'
 import AppLayout from './ui/AppLayout'
 import ErrorPage from './Pages/ErrorPage'
 import HomePage from './Pages/HomePage'
-import OrderPage from './Pages/OrderPage'
+
+import Products from './Pages/Products'
 
 
 const router = createBrowserRouter([
@@ -13,7 +14,7 @@ const router = createBrowserRouter([
 
     children: [
       {path: '/', element: <HomePage />},
-      {path: '/orders', element: <OrderPage />}
+      {path: '/products', element: <Products />}
     ]
   }
 ])

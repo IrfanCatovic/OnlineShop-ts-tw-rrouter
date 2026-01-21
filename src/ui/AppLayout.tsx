@@ -8,9 +8,9 @@ export default function AppLayout() {
 
   return (
     <div className="grid min-h-screen grid-rows-[auto_1fr_auto] ">
-  {isLoading && <div>Loading...</div>}
+      {isLoading && <div>Loading...</div>}
 
-  {/* NAVBAR – centered content */}
+      {/* NAVBAR – centered content */}
 
     <div className="w-full flex justify-center ">
       <NavBar />
