@@ -19,12 +19,12 @@ export default function CreateUser() {
     }
 
     return (
-    <div className="flex mx-auto justify-center h-48 rounded-4xl shadow-lg border-[0.5px] border-gray-300">
+    <div className={`py-12 flex mx-auto justify-center h-auto rounded-4xl shadow-lg border-[0.5px] border-gray-300`}>
 
     <form onSubmit={handleUserSubmit} className="flex flex-col gap-4 max-w-md justify-center items-center">
-        <p>👋 Dobrodošli! Molimo vas unesite korisničko ime:</p>
-        <input type="text" placeholder="Vaše korisničko ime" value={username} onChange={(e) => setUsername(e.target.value)} />
-        {username && <button type="submit">Kreiraj korisnika</button>}
+        <p className="text-stone-700 font-bold">👋 Dobrodošli! Molimo vas unesite korisničko ime:</p>
+        <input type="text" placeholder="Vaše korisničko ime" value={username} onChange={(e) => setUsername(e.target.value)} className="border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-300" />
+        {username && <button type="submit" className="px-4 py-2 bg-green-300 rounded-2xl text-stone-800 font-semibold hover:bg-green-500 hover:text-stone-100 active:scale-[0.98] transition">Kreiraj korisnika</button>}
 
     </form>
     </div>)
