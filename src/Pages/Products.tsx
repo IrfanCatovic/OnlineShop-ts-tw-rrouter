@@ -1,6 +1,8 @@
 import { useSelector } from "react-redux"
 import type { RootState } from "../store"
 import { Navigate } from "react-router"
+import Obuca from "../features/Magacin/Obuca"
+import Odeca from "../features/Magacin/Odeca"
 
 
 export default function Products(){
@@ -13,7 +15,8 @@ export default function Products(){
 
     return(
         <div>
-            <p className="">Ovo je nova strana </p>
+            <Odeca />
+            <Obuca />
         </div>
     )
 }
