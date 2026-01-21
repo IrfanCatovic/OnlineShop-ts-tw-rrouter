@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 import type { RootState } from "../store"
-import { Navigate, useNavigate } from "react-router"
+import { Navigate } from "react-router"
 
 
 export default function Products(){
