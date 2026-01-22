@@ -1,5 +1,13 @@
-export default function Obuca(){
+import {type Product} from "./MagacinProizvoda"
+
+    type ShoeItemProps = {
+        shoe: Product;
+        };
+
+export default function Obuca({shoe} : ShoeItemProps){
+
+
     return <div>
-        <p>ObucaItem comp</p>
+        {shoe.name} - {shoe.price}RSD
     </div>
 }

@@ -14,8 +14,10 @@ export default function Obuca(){
     return <div>
        <p>👋 Hello {username} </p> 
         <h1>Shoes 🌟</h1>
+        <ul>
+
             {shoes.map(shoe => <ShoeItem key={shoe.id} shoe={shoe}/>)}
+        </ul>
     </div>
 }
 
-//TODO: PROP DOESNT WORK CORRECTLY 
