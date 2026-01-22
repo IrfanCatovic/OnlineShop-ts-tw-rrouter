@@ -37,3 +37,6 @@ export default App
 
 //todo: make apiCloaths for fake api to load all cloath from some store
 //I think when we have that we will need loader like fast-pizza-project
+
+
+//todo: When I have user registered and come back on start there will bee hello {username}

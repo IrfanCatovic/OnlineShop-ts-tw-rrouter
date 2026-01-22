@@ -1,6 +1,11 @@
 import type { RootState } from "../../store"
-import ShoeItem from "./ShoeItem"
 import { useSelector } from "react-redux"
+
+import ShoeItem from "./ShoeItem"
+
+
+
+
 
 
 export default function Obuca(){
@@ -9,7 +14,8 @@ export default function Obuca(){
     //ovo RootState nam omogucava da koristimo tipizaciju iz store-a
     //zato sto ts trenutno ne zna sta je state i koji su njegovi delovi
     //mi u store-u definisemo tip stanja pomocu RootState i on sam skota tamo ahaa ovaj state je  tipa UserState 
-    const shoes = products.products.filter(product => product.type === 'shoes');
+
+    // const shoes = products.products.filter(product => product.type === 'shoes');
 
     return <div>
 
