@@ -13,6 +13,7 @@ type ProductState = {
     products: Product[]
 }
 
+
 const initialState: ProductState ={
     products: [],
 }

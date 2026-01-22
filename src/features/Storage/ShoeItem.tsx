@@ -1,4 +1,4 @@
-import {type Product} from "./Storage"
+import {type Product} from "./ProductsSlice"
 
     type ShoeItemProps = {
         shoe: Product;

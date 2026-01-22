@@ -5,7 +5,9 @@ import AppLayout from './ui/AppLayout'
 import ErrorPage from './Pages/ErrorPage'
 import HomePage from './Pages/HomePage'
 
-import Products from './Pages/Products'
+import Products, {loader as productsLoader} from "./Pages/Products";
+
+
 
 
 const router = createBrowserRouter([
@@ -14,12 +16,16 @@ const router = createBrowserRouter([
 
     children: [
       {path: '/', element: <HomePage />},
-      {path: '/products', element: <Products />}
+      {path: "/products",
+        element: <Products />,
+        loader: productsLoader,
+      }
     ]
   }
 ])
 
 function App() {
+
   return <div>
     <RouterProvider router={router} />;
     </div>
