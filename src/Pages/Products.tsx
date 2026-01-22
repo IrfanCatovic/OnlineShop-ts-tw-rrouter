@@ -2,11 +2,14 @@ import { useSelector } from "react-redux"
 import type { RootState } from "../store"
 import { Navigate, useLoaderData } from "react-router"
 import { getStorage } from "../services/apiStorage"
+import type { Product } from "../features/Storage/ProductsSlice";
+
+import ProductItem from "../features/Storage/ProductItem"
 
 
 
 export default function Products(){
-    const products = useLoaderData()
+    const products = useLoaderData() as Product[];
     const username = useSelector((state: RootState) => state.user.username)
 
     
@@ -15,9 +18,9 @@ export default function Products(){
   }
 
     return(
-        <div>
-                
-        </div>
+        <ul>
+            {products.map(product => <ProductItem product={product} key={product.id} />)}
+        </ul>
     )
 }
 

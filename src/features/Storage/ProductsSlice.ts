@@ -1,15 +1,19 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
 
 
-export type Product = {
-    id: string
-  name: string
+export interface Product {
+    id: number
+  title: string
   price: number
-  type: string
+  description: string
   image: string
+  raiting: {
+    rate: number,
+    count: number
+  }
 }
 
-type ProductState = {
+interface ProductState  {
     products: Product[]
 }
 
