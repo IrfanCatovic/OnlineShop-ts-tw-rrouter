@@ -1,4 +1,4 @@
-import {type Product} from "./MagacinProizvoda"
+import {type Product} from "./Storage"
 
     type ShoeItemProps = {
         shoe: Product;
