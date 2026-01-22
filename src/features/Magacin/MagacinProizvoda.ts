@@ -12,27 +12,27 @@ export const initialProducts: Product[] = [
     name: "Marciano - Braon ženski mantil",
     price: 43.190,
     type: "clothes",
-    image: "/images/mantil.jpg",
+    image: "/mantil.jpg",
   },
   {
     id: "2",
     name: "BOSS - Bela ženska jakna",
     price: 72.990,
     type: "clothes",
-    image: "/images/jakna.jpg",
+    image: "/jakna.jpg",
   },
   {
     id: "3",
     name: "Marciano - Crne ženske cipele",
     price: 31.190,
     type: "shoes",
-    image: "/images/cipela.jpg",
+    image: "/cipela.jpg",
   },
   {
     id: "4",
     name: "Emporio Armani - Kožne ženske čizme",
     price: 87.990,
     type: "shoes",
-    image: "/images/cizma.jpg",
+    image: "cizma.jpg",
   }
 ]
