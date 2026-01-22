@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 
 
 export default function Obuca(){
-    const username = useSelector((state: RootState ) => state.user.username)
+
     const products = useSelector((state: RootState ) => state.products)
     //ovo RootState nam omogucava da koristimo tipizaciju iz store-a
     //zato sto ts trenutno ne zna sta je state i koji su njegovi delovi
@@ -12,10 +12,8 @@ export default function Obuca(){
     const shoes = products.products.filter(product => product.type === 'shoes');
 
     return <div>
-       <p>👋 Hello {username} </p> 
-        <h1>Shoes 🌟</h1>
-        <ul>
 
+        <ul className="grid grid-cols-3 gap-4">
             {shoes.map(shoe => <ShoeItem key={shoe.id} shoe={shoe}/>)}
         </ul>
     </div>

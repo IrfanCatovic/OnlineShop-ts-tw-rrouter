@@ -27,4 +27,13 @@ function App() {
 
 export default App
 
-//todo: still create user
+//todo: onClick addToCart and after that reduce all prices from reciepe 
+
+//todo: Create Form for adding new items to the store with actions
+//todo: Create same thing for odeca like for obuca
+//todo: create cart component
+//todo: make final reciepe component
+
+
+//todo: make apiCloaths for fake api to load all cloath from some store
+//I think when we have that we will need loader like fast-pizza-project

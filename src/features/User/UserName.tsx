@@ -7,7 +7,7 @@ export default function UserName(){
 
     return(
         <p className="text-lg font-semibold text-gray-900 ">
-          {username}
+          Zdravo - {username} 👋
         </p>
     )
 }

@@ -22,6 +22,20 @@ export const initialProducts: Product[] = [
     image: "/jakna.jpg",
   },
   {
+    id: "7",
+    name: "BOSS - Bela ženska jakna",
+    price: 72.990,
+    type: "clothes",
+    image: "/jakna.jpg",
+  },
+  {
+    id: "8",
+    name: "BOSS - Bela ženska jakna",
+    price: 72.990,
+    type: "clothes",
+    image: "/jakna.jpg",
+  },
+  {
     id: "3",
     name: "Marciano - Crne ženske cipele",
     price: 31.190,
@@ -34,5 +48,20 @@ export const initialProducts: Product[] = [
     price: 87.990,
     type: "shoes",
     image: "cizma.jpg",
+  },
+  {
+    id: "5",
+    name: "Emporio Armani - Kožne ženske čizme",
+    price: 87.990,
+    type: "shoes",
+    image: "cizma.jpg",
+  },
+  {
+    id: "6",
+    name: "Emporio Armani - Kožne ženske čizme",
+    price: 87.990,
+    type: "shoes",
+    image: "cizma.jpg",
   }
+
 ]
