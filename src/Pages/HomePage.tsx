@@ -1,4 +1,4 @@
-import CreateUser from "../features/User/CreateUser"
+import CreateUser from "../features/User/createUser"
 
 export default function HomePage(){
     return <div className="w-full ">
