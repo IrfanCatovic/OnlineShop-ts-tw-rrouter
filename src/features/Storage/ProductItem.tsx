@@ -6,10 +6,15 @@ import {type Product} from "./ProductsSlice"
 
 export default function ProductItem({product} : ProductItemProps){
 
+  function handleClick = () =>{
+    
+  }
+
 
 return (
   <div className="flex gap-4 px-4 py-3 border my-2 border-gray-300">
     {/* Slika */}
+
     <img
       src={product.image}
       alt={product.title}
@@ -19,17 +24,17 @@ return (
 
     <div className="flex flex-col justify-between flex-1">
 
-      <h3 className="text-lg font-semibold">
+      <h3 className="text-[16px] font-semibold">
         {product.title}
       </h3>
 
 
       <div className="flex items-center justify-between">
-        <span className="text-lg font-bold">
-          {product.price} RSD
+        <span className="text-[16px] font-bold ">
+          {product.price} USD
         </span>
 
-        <button className="px-4 py-2 bg-black text-white rounded">
+        <button className="px-4 py-2 bg-black text-white rounded" onClick={handleClick}>
           Dodaj u korpu
         </button>
       </div>
