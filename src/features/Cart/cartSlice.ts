@@ -16,6 +16,20 @@ const cartSlice = createSlice({
   reducers:{
     addItem(state, action){
         state.cart.push(action.payload)
+    },
+    increaseItemQuantity(state, action){
+      const item = state.cart.find(item => item.id === action.payload) 
+      if (!item) throw new Error("Item not found");
+      
+      item.quantity++
+      item.totalPrice = item.quantity * item.price;
+    },
+    decreaseItemQuantity(state, action){
+      const item = state.cart.find(item => item.id === action.payload)
+      if (!item) throw new Error("Item not found");
+
+      item.quantity--
+      item.totalPrice = item.quantity * item.price
     }
   }
 })

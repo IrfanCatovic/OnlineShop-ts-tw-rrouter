@@ -26,6 +26,7 @@ export default function CartItem({ cartItem } : CartItemProps) {
             <p className="text-lg font-bold">{price} RSD</p>
             <p className="text-gray-500">Quantity: {currentQuantity}</p>
         </div>
+        
       </div>
 }
 

@@ -2,12 +2,19 @@ import { useSelector } from "react-redux"
 import { getCart } from "./cartSlice"
 import type { RootState } from "../../store"
 import CartItem from "./CartItem"
+import { Navigate } from "react-router"
 
 
 export default function CartOverview() {
+ 
     const username = useSelector((state: RootState) => state.user.username)
 
     const cart = useSelector(getCart)
+
+
+    if (!username) {
+    return <Navigate to="/" replace />
+  }
 
 
     return <div>
@@ -16,6 +23,7 @@ export default function CartOverview() {
 
         {cart.map(item => <CartItem cartItem={item} key={item.id} />) }
         </ul>
+        <button>Finish shopping</button>
         </div>
 }
 
