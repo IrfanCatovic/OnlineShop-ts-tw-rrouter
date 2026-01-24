@@ -1,12 +1,15 @@
 import { Form } from "react-router";
 import {type Product} from "./ProductsSlice"
 import { title } from "process";
+import { addItem } from "../Cart/cartSlice";
+import { useDispatch } from "react-redux";
 
     type ProductItemProps = {
         product: Product;
         };
 
 export default function ProductItem({product} : ProductItemProps){
+  const dispatch = useDispatch()
 
   const { id, title, price, description, image, raiting} = product
 
@@ -19,7 +22,7 @@ export default function ProductItem({product} : ProductItemProps){
       image, 
       raiting
     }
-    dispatch
+    dispatch(addItem(newItem))
   }
 
 
