@@ -14,7 +14,7 @@ export default function ProductItem({product} : ProductItemProps){
   const { id, title, price, description, image, raiting} = product
   
   function handleClick(){
-    console.log(product.raiting)
+    
     const newItem = {
       id,
       title, 

@@ -7,6 +7,7 @@ export interface Product {
     price: number
     description: string
     image: string
+    quantity ?: number
     raiting: {
     rate: number,
     count: number
