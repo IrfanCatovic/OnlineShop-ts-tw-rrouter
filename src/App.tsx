@@ -6,6 +6,7 @@ import ErrorPage from './Pages/ErrorPage'
 import HomePage from './Pages/HomePage'
 
 import Products, {loader as productsLoader} from "./Pages/Products";
+import CartOverview from './features/Cart/CartOverview'
 
 
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {path: "/products",
         element: <Products />,
         loader: productsLoader,
+      }
+      {
+        path: "/cart",
+        element: <CartOverview />
       }
     ]
   }

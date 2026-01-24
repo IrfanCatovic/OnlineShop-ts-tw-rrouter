@@ -1,4 +1,6 @@
+import { Form } from "react-router";
 import {type Product} from "./ProductsSlice"
+import { title } from "process";
 
     type ProductItemProps = {
         product: Product;
@@ -6,8 +8,18 @@ import {type Product} from "./ProductsSlice"
 
 export default function ProductItem({product} : ProductItemProps){
 
-  function handleClick = () =>{
-    
+  const { id, title, price, description, image, raiting} = product
+
+  function handleClick(): void{
+    const newItem = {
+      id,
+      title, 
+      price, 
+      description, 
+      image, 
+      raiting
+    }
+    dispatch
   }
 
 

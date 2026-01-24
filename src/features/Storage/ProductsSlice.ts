@@ -3,11 +3,11 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit"
 
 export interface Product {
     id: number
-  title: string
-  price: number
-  description: string
-  image: string
-  raiting: {
+    title: string
+    price: number
+    description: string
+    image: string
+    raiting: {
     rate: number,
     count: number
   }
