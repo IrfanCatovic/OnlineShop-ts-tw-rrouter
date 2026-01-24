@@ -1,8 +1,8 @@
-import { Form } from "react-router";
+
 import {type Product} from "./ProductsSlice"
-import { title } from "process";
-import { addItem } from "../Cart/cartSlice";
-import { useDispatch } from "react-redux";
+
+import { addItem, getCart } from "../Cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
     type ProductItemProps = {
         product: Product;
@@ -13,7 +13,8 @@ export default function ProductItem({product} : ProductItemProps){
 
   const { id, title, price, description, image, raiting} = product
 
-  function handleClick(): void{
+  function handleClick(){
+
     const newItem = {
       id,
       title, 
@@ -23,8 +24,8 @@ export default function ProductItem({product} : ProductItemProps){
       raiting
     }
     dispatch(addItem(newItem))
-  }
 
+  }
 
 return (
   <div className="flex gap-4 px-4 py-3 border my-2 border-gray-300">
@@ -49,7 +50,7 @@ return (
           {product.price} USD
         </span>
 
-        <button className="px-4 py-2 bg-black text-white rounded" onClick={handleClick}>
+        <button className="px-4 py-2 bg-black text-white rounded  hover:bg-stone-450" onClick={handleClick}>
           Dodaj u korpu
         </button>
       </div>
