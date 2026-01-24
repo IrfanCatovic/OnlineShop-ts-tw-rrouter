@@ -11,11 +11,11 @@ type CartItemProps = {
 export default function CartItem({ cartItem } : CartItemProps) {
     const dispatch = useDispatch()
 
-    const { id, title, price, description, image, raiting } = cartItem;
+    const { id, title, price, description, image } = cartItem;
     const currentQuantity = useSelector(getCurrentQuantityById(id))
     const isInCart = currentQuantity > 0;
 
-    console.log(title, price, description, image, raiting)
+
     
     return <div key={id} className="w-full my-4 flex flex-col sm:flex-row bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition">
       <img src={image} alt={title} className="w-full sm:w-1/3 h-64 object-contain bg-gray-100"/>

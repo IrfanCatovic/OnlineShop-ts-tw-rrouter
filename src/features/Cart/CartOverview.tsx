@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { getCart } from "./cartSlice"
+import { getCart, getTotalCartPrice } from "./cartSlice"
 import type { RootState } from "../../store"
 import CartItem from "./CartItem"
 import { Navigate } from "react-router"
@@ -8,9 +8,9 @@ import { Navigate } from "react-router"
 export default function CartOverview() {
  
     const username = useSelector((state: RootState) => state.user.username)
-
+    const totalPrice = useSelector(getTotalCartPrice)
     const cart = useSelector(getCart)
-
+    console.log(totalPrice)
 
     if (!username) {
     return <Navigate to="/" replace />
@@ -23,6 +23,7 @@ export default function CartOverview() {
 
         {cart.map(item => <CartItem cartItem={item} key={item.id} />) }
         </ul>
+        <span></span>
         <button>Finish shopping</button>
         </div>
 }

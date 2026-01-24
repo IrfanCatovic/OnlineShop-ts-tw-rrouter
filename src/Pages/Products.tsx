@@ -5,13 +5,14 @@ import { getStorage } from "../services/apiStorage"
 import type { Product } from "../features/Storage/ProductsSlice";
 
 import ProductItem from "../features/Storage/ProductItem"
+import { getTotalCartPrice } from "../features/Cart/cartSlice";
 
 
 
 export default function Products(){
     const products = useLoaderData() as Product[];
     const username = useSelector((state: RootState) => state.user.username)
-
+    const totalPrice = useSelector(getTotalCartPrice)
     
     if (!username) {
     return <Navigate to="/" replace />
@@ -19,6 +20,7 @@ export default function Products(){
 
     return(
         <ul className="max-w-8xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 ">
+            <p>{totalPrice}</p>
             {products.map(product => <ProductItem product={product} key={product.id} />)}
         </ul>
     )

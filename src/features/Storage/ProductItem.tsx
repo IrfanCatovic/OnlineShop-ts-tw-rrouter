@@ -1,8 +1,9 @@
 
 import {type Product} from "./ProductsSlice"
 
-import { addItem } from "../Cart/cartSlice";
-import { useDispatch } from "react-redux";
+import { addItem, getCurrentQuantityById } from "../Cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import UpdateItemQuantity from "./UpdateItemQuantity";
 
     type ProductItemProps = {
         product: Product;
@@ -10,16 +11,21 @@ import { useDispatch } from "react-redux";
 
 export default function ProductItem({product} : ProductItemProps){
   const dispatch = useDispatch()
-
   const { id, title, price, description, image, raiting} = product
-  
+
+  const currentQuantity = useSelector(getCurrentQuantityById(id))
+    const isInCart = currentQuantity > 0;
+
+
   function handleClick(){
     
     const newItem = {
       id,
       title, 
       price, 
-      description, 
+      description,
+      quantity: 1, 
+      totalPrice: price * 1,
       image, 
       raiting
     }
@@ -50,11 +56,18 @@ return (
           {product.price} USD
         </span>
 
+
+        {isInCart && (
+          <div> 
+          <UpdateItemQuantity currentQuantity={currentQuantity} itemId={id}/>
+            </div>)}
+
+        {!isInCart && (
         <button className="px-4 py-2 bg-black text-white rounded transition-all duration-150 hover:bg-stone-800 active:scale-95 active:bg-stone-900 shadow-md 
         active:shadow-sm" onClick={handleClick}>
           Dodaj u korpu
-        </button>
-
+        </button>)
+        } 
 
       </div>
     </div>
@@ -62,3 +75,5 @@ return (
 );
 
 } 
+
+//todo izracunaj totalPrice
