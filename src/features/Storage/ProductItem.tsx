@@ -1,8 +1,8 @@
 
 import {type Product} from "./ProductsSlice"
 
-import { addItem, getCart } from "../Cart/cartSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../Cart/cartSlice";
+import { useDispatch } from "react-redux";
 
     type ProductItemProps = {
         product: Product;
@@ -50,9 +50,12 @@ return (
           {product.price} USD
         </span>
 
-        <button className="px-4 py-2 bg-black text-white rounded  hover:bg-stone-450" onClick={handleClick}>
+        <button className="px-4 py-2 bg-black text-white rounded transition-all duration-150 hover:bg-stone-800 active:scale-95 active:bg-stone-900 shadow-md 
+        active:shadow-sm" onClick={handleClick}>
           Dodaj u korpu
         </button>
+
+
       </div>
     </div>
   </div>
