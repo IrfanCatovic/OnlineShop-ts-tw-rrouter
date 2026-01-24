@@ -1,3 +1,4 @@
+import { useDispatch } from "react-redux";
 import type { Product } from "../Storage/ProductsSlice";
 
 
@@ -7,7 +8,8 @@ type CartItemProps = {
 
 
 export default function CartItem({ cartItem } : CartItemProps) {
-    console.log(cartItem)
+    const dispatch = useDispatch()
+    
     
     return <div>ITEMS</div>
 }
