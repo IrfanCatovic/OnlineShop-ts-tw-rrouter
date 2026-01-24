@@ -20,7 +20,7 @@ export default function Products(){
 
     return(
         <ul className="max-w-8xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 ">
-            <p>{totalPrice}</p>
+            
             {products.map(product => <ProductItem product={product} key={product.id} />)}
         </ul>
     )

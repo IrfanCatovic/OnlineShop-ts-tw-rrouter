@@ -10,7 +10,7 @@ export default function CartOverview() {
     const username = useSelector((state: RootState) => state.user.username)
     const totalPrice = useSelector(getTotalCartPrice)
     const cart = useSelector(getCart)
-    console.log(totalPrice)
+
 
     if (!username) {
     return <Navigate to="/" replace />
@@ -24,7 +24,7 @@ export default function CartOverview() {
         {cart.map(item => <CartItem cartItem={item} key={item.id} />) }
         </ul>
         <span></span>
-        <button>Finish shopping</button>
+        <button>Finish shopping, your total cart price is {totalPrice} $</button>
         </div>
 }
 
