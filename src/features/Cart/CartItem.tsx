@@ -23,7 +23,7 @@ export default function CartItem({ cartItem } : CartItemProps) {
         <div className="p-6 flex flex-col gap-2 sm:w-2/3">
             <h2 className="text-2xl font-semibold text-gray-900">{title}</h2>
             <p className="text-gray-600">{description}</p>
-            <p className="text-lg font-bold">{price} RSD</p>
+            <p className="text-lg font-bold">{price} USD</p>
             <p className="text-gray-500">Quantity: {currentQuantity}</p>
         </div>
         
