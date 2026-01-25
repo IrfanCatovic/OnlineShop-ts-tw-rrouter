@@ -11,7 +11,7 @@ import UpdateItemQuantity from "./UpdateItemQuantity";
 
 export default function ProductItem({product} : ProductItemProps){
   const dispatch = useDispatch()
-  const { id, title, price, description, image, raiting} = product
+  const { id, title, price, description, image} = product
 
   const currentQuantity = useSelector(getCurrentQuantityById(id))
 
@@ -26,7 +26,6 @@ export default function ProductItem({product} : ProductItemProps){
       quantity: 1, 
       totalPrice: price * 1,
       image, 
-      raiting
     }
     dispatch(addItem(newItem))
     console.log(currentQuantity)

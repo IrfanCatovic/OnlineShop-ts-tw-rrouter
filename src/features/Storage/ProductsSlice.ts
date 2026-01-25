@@ -9,10 +9,6 @@ export interface Product {
     image: string
     totalPrice: number
     quantity : number
-    raiting: {
-    rate: number,
-    count: number
-  }
 }
 
 interface ProductState  {
