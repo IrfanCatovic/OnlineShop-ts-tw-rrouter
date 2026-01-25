@@ -53,7 +53,7 @@ export default function CartOverview() {
                   </ul>
 
                   <button className="mt-6 rounded-xl bg-green-600 px-6 py-3 text-white font-semibold">
-                    Finish shopping, your total cart price is {totalPrice} $
+                    Finish shopping, your total cart price is {totalPrice.toFixed(2)} $
                   </button>
                 </div>
               )}
