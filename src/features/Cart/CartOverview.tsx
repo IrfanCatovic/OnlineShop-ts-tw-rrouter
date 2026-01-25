@@ -38,7 +38,7 @@ export default function CartOverview() {
                 return
               }
               // success
-              navigate('/orders')
+              navigate('/')
               console.log(data.message)
               alert("Cart is saved to MongoDB")
             } catch (err) {

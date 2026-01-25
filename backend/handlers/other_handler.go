@@ -8,6 +8,8 @@ import (
 	"time"
 
 	"backend/db" // ovo je tvoj mongo client
+
+	"go.mongodb.org/mongo-driver/bson"
 )
 
 // Strukture ostaju iste
@@ -65,4 +67,33 @@ func CreateOrder(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(map[string]string{
 		"message": "Order received successfully",
 	})
+}
+
+func GetOrders(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+
+	collection := db.Client.Database("myshop").Collection("orders")
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	defer cancel()
+
+	cursor, err := collection.Find(ctx, bson.M{}) // prazni filter = sve dokumente
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(map[string]string{
+			"error": "Failed to fetch orders",
+		})
+		return
+	}
+	defer cursor.Close(ctx)
+
+	var orders []Order
+	if err = cursor.All(ctx, &orders); err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(map[string]string{
+			"error": "Failed to parse orders",
+		})
+		return
+	}
+
+	json.NewEncoder(w).Encode(orders)
 }

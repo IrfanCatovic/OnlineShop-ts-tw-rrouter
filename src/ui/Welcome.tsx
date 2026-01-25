@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import type { RootState } from "../store"
 import { useNavigate } from "react-router"
+import OrdersPage from "../features/Cart/OrdersPage"
 
 export default function Welcome() {
     const username = useSelector((state: RootState) => state.user.username)
@@ -18,5 +19,6 @@ export default function Welcome() {
             <button onClick={()=> navigate('/products')} className="w-xl rounded-xl bg-green-500 px-6 py-2 text-sm font-semibold text-black hover:bg-green-400 transition">
                     Shop now! 🛒
                 </button>
+            <OrdersPage />
             </div>
 }
