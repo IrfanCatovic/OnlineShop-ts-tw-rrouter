@@ -1,5 +1,8 @@
 export default function Loader(){
     return(
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-200/20 backdrop:blur-sm">Loading...</div>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-gray-600 border-t-white" />
+        </div>
+
     )
 }
