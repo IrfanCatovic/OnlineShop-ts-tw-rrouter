@@ -27,9 +27,14 @@ const cartSlice = createSlice({
     decreaseItemQuantity(state, action){
       const item = state.cart.find(item => item.id === action.payload)
       if (!item) throw new Error("Item not found");
+      
+      if (item.quantity === 1) {
+        state.cart = state.cart.filter(i => i.id !== action.payload);
+      } else {
+        item.quantity--;
+        item.totalPrice = item.quantity * item.price;
+      }
 
-      item.quantity--
-      item.totalPrice = item.quantity * item.price
     }
   }
 })

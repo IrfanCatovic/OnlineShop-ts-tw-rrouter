@@ -30,6 +30,7 @@ export default function ProductItem({product} : ProductItemProps){
       raiting
     }
     dispatch(addItem(newItem))
+    console.log(currentQuantity)
 
   }
 
@@ -57,17 +58,12 @@ return (
         </span>
 
 
-        {isInCart && (
-          <div> 
-          <UpdateItemQuantity currentQuantity={currentQuantity} itemId={id}/>
-            </div>)}
-
-        {!isInCart && (
-        <button className="px-4 py-2 bg-black text-white rounded transition-all duration-150 hover:bg-stone-800 active:scale-95 active:bg-stone-900 shadow-md 
-        active:shadow-sm" onClick={handleClick}>
-          Dodaj u korpu
-        </button>)
-        } 
+        {currentQuantity > 0 ? (
+                <UpdateItemQuantity currentQuantity={currentQuantity} itemId={id} />
+              ) : (
+                <button className="px-4 py-2 bg-black text-white rounded transition-all duration-150 hover:bg-stone-800 active:scale-95 active:bg-stone-900 shadow-md 
+        active:shadow-sm" onClick={handleClick}>Add to cart</button>
+        )}
 
       </div>
     </div>
