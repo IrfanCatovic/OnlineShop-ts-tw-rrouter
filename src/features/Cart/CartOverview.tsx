@@ -3,10 +3,12 @@ import { getCart, getTotalCartPrice, getTotalCartQuantity } from "./cartSlice"
 import type { RootState } from "../../store"
 import CartItem from "./CartItem"
 import { Navigate, useNavigate } from "react-router"
+import { useState } from "react"
+import Loader from "../../ui/Loader"
 
 
 export default function CartOverview() {
- 
+    const [loading, setLoading] = useState(false);
     const username = useSelector((state: RootState) => state.user.username)
     const cart = useSelector(getCart)
     const totalPrice = useSelector(getTotalCartPrice)
@@ -21,6 +23,7 @@ export default function CartOverview() {
               totalPrice,
             }
             try {
+              setLoading(true);
               const res = await fetch("http://localhost:8080/orders", {
                 method: "POST",
                 headers: {
@@ -35,10 +38,14 @@ export default function CartOverview() {
                 return
               }
               // success
+              navigate('/orders')
               console.log(data.message)
+              alert("Cart is saved to MongoDB")
             } catch (err) {
               console.error("Error sending order:", err)
 
+            }finally{
+              setLoading(false);
             }
           }
 
@@ -52,6 +59,7 @@ export default function CartOverview() {
 
     return (
             <>
+              {loading && <Loader />}
               {cartQuantity === 0 ? (<div>
 
                 <p>Your cart is empty right now!</p>
@@ -85,7 +93,7 @@ export default function CartOverview() {
                   </ul>
 
                   <button onClick={handleFinishShopping} className="mt-6 rounded-xl bg-green-600 px-6 py-3 text-white font-semibold">
-                    Finish shopping, your total cart price is {totalPrice.toFixed(2)} $
+                    {loading ? "Processing..." : `Finish shopping, your total cart price is ${totalPrice.toFixed(2)} $`}
                   </button>
                 </div>
               )}
