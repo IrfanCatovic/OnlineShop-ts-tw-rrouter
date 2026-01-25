@@ -1,13 +1,14 @@
 package main
 
 import (
+	"backend/db"
+	"backend/router"
 	"log"
 	"net/http"
-
-	"backend/router"
 )
 
 func main() {
+	db.Connect("mongodb+srv://catovicc84_db_user:kwLVPb7cPp530s5B@onlineshop.irsj1r6.mongodb.net/")
 	r := router.SetupRouter() //pravi sve rute
 
 	log.Println("Server running on http://localhost:8080")

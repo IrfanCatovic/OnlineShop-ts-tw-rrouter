@@ -1,0 +1,3 @@
+catovicc84_db_user
+kwLVPb7cPp530s5B
+mongodb+srv://catovicc84_db_user:kwLVPb7cPp530s5B@onlineshop.irsj1r6.mongodb.net/

@@ -1,23 +1,29 @@
 package handlers
 
 import (
+	"context"
 	"encoding/json"
 	"log"
 	"net/http"
+	"time"
+
+	"backend/db" // ovo je tvoj mongo client
 )
 
+// Strukture ostaju iste
 type OrderItem struct {
-	ID         string  `json:"id"`         // ID proizvoda
-	Title      string  `json:"title"`      // naziv proizvoda
-	Price      float64 `json:"price"`      // cena po komadu
-	Quantity   int     `json:"quantity"`   // koliko komada
-	TotalPrice float64 `json:"totalPrice"` // ukupna cena (quantity * price)
+	ID         string  `json:"id"`
+	Title      string  `json:"title"`
+	Price      float64 `json:"price"`
+	Quantity   int     `json:"quantity"`
+	TotalPrice float64 `json:"totalPrice"`
 }
 
 type Order struct {
-	Username   string      `json:"username"`   // korisničko ime
-	Items      []OrderItem `json:"items"`      // lista proizvoda u cartu
-	TotalPrice float64     `json:"totalPrice"` // ukupna cena cele porudžbine
+	Username   string      `json:"username"`
+	Items      []OrderItem `json:"items"`
+	TotalPrice float64     `json:"totalPrice"`
+	CreatedAt  string      `json:"createdAt"` // timestamp
 }
 
 func CreateOrder(w http.ResponseWriter, r *http.Request) {
@@ -25,17 +31,30 @@ func CreateOrder(w http.ResponseWriter, r *http.Request) {
 
 	var order Order
 
+	// dekodovanje JSON-a
 	err := json.NewDecoder(r.Body).Decode(&order)
 	if err != nil {
 		http.Error(w, "Invalid request body", http.StatusBadRequest)
 		return
 	}
 
-	log.Println("Received order:", order)
+	// dodaj timestamp
+	order.CreatedAt = time.Now().Format(time.RFC3339)
 
+	// upis u MongoDB
+	collection := db.Client.Database("myshop").Collection("orders")
+	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+	defer cancel()
+
+	_, err = collection.InsertOne(ctx, order)
+	if err != nil {
+		http.Error(w, "Failed to save order", http.StatusInternalServerError)
+		log.Println("Mongo insert error:", err)
+		return
+	}
+
+	// potvrda za frontend
 	json.NewEncoder(w).Encode(map[string]string{
-		"message": "Order received",
+		"message": "Order received successfully",
 	})
-	//prima HTTP request
-	//vraća JSON response
 }
