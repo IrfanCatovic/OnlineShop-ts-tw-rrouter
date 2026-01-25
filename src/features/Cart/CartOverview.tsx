@@ -8,11 +8,37 @@ import { Navigate, useNavigate } from "react-router"
 export default function CartOverview() {
  
     const username = useSelector((state: RootState) => state.user.username)
+    const cart = useSelector(getCart)
     const totalPrice = useSelector(getTotalCartPrice)
     const cartQuantity = useSelector(getTotalCartQuantity)
-    const cart = useSelector(getCart)
     const navigate = useNavigate()
 
+    const handleFinishShopping = async () => {
+        if (!username || cart.length === 0) return
+
+        const order = {
+          username,
+          items: cart,
+          totalPrice
+        }
+
+        try {
+          const res = await fetch("http://localhost:8080/orders", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(order)
+          })
+
+          const data = await res.json()
+          alert(data.message) // ili toast poruka
+        } catch (err) {
+          console.error("Error sending order:", err)
+        }
+    }
+
+    //early return if we dont have user logged in
     if (!username) {
     return <Navigate to="/" replace />
   }
@@ -52,7 +78,7 @@ export default function CartOverview() {
                     ))}
                   </ul>
 
-                  <button className="mt-6 rounded-xl bg-green-600 px-6 py-3 text-white font-semibold">
+                  <button onClick={handleFinishShopping} className="mt-6 rounded-xl bg-green-600 px-6 py-3 text-white font-semibold">
                     Finish shopping, your total cart price is {totalPrice.toFixed(2)} $
                   </button>
                 </div>
