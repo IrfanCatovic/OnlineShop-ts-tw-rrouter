@@ -46,5 +46,5 @@ export const getTotalCartPrice = (state: RootState) =>
 export const getCurrentQuantityById = (id : number) => (state : RootState) =>
   state.cart.cart.find((item) => item.id === id)?.quantity ?? 0;
 
-export const { addItem } = cartSlice.actions;
+export const { addItem, increaseItemQuantity, decreaseItemQuantity } = cartSlice.actions;
 export default cartSlice.reducer;
