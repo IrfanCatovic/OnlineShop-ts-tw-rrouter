@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { getCart, getTotalCartPrice } from "./cartSlice"
+import { getCart, getTotalCartPrice, getTotalCartQuantity } from "./cartSlice"
 import type { RootState } from "../../store"
 import CartItem from "./CartItem"
 import { Navigate, useNavigate } from "react-router"
@@ -9,6 +9,7 @@ export default function CartOverview() {
  
     const username = useSelector((state: RootState) => state.user.username)
     const totalPrice = useSelector(getTotalCartPrice)
+    const cartQuantity = useSelector(getTotalCartQuantity)
     const cart = useSelector(getCart)
     const navigate = useNavigate()
 
@@ -17,20 +18,47 @@ export default function CartOverview() {
   }
 
 
-    return <div>
-      <button
-          onClick={() => navigate(-1)}
-          className="flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold
-           text-white shadow-md hover:bg-red-500 transition">Back</button>
+    return (
+            <>
+              {cartQuantity === 0 ? (<div>
 
-        <h2 className="mt-7 text-xl font-semibold">Your cart, {username}</h2>
-        <ul>
+                <p>Your cart is empty right now!</p>
+                <button
+                    onClick={() => navigate(-1)}
+                    className="flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold
+                    text-white shadow-md hover:bg-red-500 transition my-4"
+                  >
+                    Back
+                  </button>
+              </div>
+                
+              ) : (
+                <div>
+                  <button
+                    onClick={() => navigate(-1)}
+                    className="flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2 text-sm font-semibold
+                    text-white shadow-md hover:bg-red-500 transition"
+                  >
+                    Back
+                  </button>
 
-        {cart.map(item => <CartItem cartItem={item} key={item.id} />) }
-        </ul>
-        <span></span>
-        <button>Finish shopping, your total cart price is {totalPrice} $</button>
-        </div>
+                  <h2 className="mt-7 text-xl font-semibold">
+                    Your cart, {username}
+                  </h2>
+
+                  <ul>
+                    {cart.map(item => (
+                      <CartItem cartItem={item} key={item.id} />
+                    ))}
+                  </ul>
+
+                  <button className="mt-6 rounded-xl bg-green-600 px-6 py-3 text-white font-semibold">
+                    Finish shopping, your total cart price is {totalPrice} $
+                  </button>
+                </div>
+              )}
+            </>
+          );
 }
 
 

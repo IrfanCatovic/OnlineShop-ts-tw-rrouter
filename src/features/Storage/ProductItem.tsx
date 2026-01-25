@@ -14,7 +14,6 @@ export default function ProductItem({product} : ProductItemProps){
   const { id, title, price, description, image, raiting} = product
 
   const currentQuantity = useSelector(getCurrentQuantityById(id))
-    const isInCart = currentQuantity > 0;
 
 
   function handleClick(){
@@ -59,9 +58,9 @@ return (
 
 
         {currentQuantity > 0 ? (
-                <UpdateItemQuantity currentQuantity={currentQuantity} itemId={id} />
-              ) : (
-                <button className="px-4 py-2 bg-black text-white rounded transition-all duration-150 hover:bg-stone-800 active:scale-95 active:bg-stone-900 shadow-md 
+          <UpdateItemQuantity currentQuantity={currentQuantity} itemId={id} />
+        ) : (
+          <button className="px-4 py-2 bg-black text-white rounded transition-all duration-150 hover:bg-stone-800 active:scale-95 active:bg-stone-900 shadow-md 
         active:shadow-sm" onClick={handleClick}>Add to cart</button>
         )}
 
