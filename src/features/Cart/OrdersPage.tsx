@@ -39,27 +39,44 @@ export default function OrdersPage() {
   if (loading) return <p>Loading orders...</p>
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">All Orders</h1>
-      {orders.length === 0 ? (
-        <p>No orders yet</p>
-      ) : (
-        orders.map((order, idx) => (
-          <div key={idx} className="border p-4 mb-4 rounded-lg shadow-sm">
-            <h2 className="font-semibold">{order.username}</h2>
-            <p>Total: ${order.totalPrice.toFixed(2)}</p>
-            <p>Date: {new Date(order.createdAt).toLocaleString()}</p>
-            <ul className="mt-2">
-              {order.items.map(item => (
-                <li key={item.id} className="flex justify-between">
-                  <span>{item.title} x {item.quantity}</span>
-                  <span>${item.totalPrice.toFixed(2)}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      )}
-    </div>
+        <div className="max-w-5xl mx-auto p-6">
+            <h1 className="text-3xl font-bold mb-6 text-gray-900 text-center">All Orders</h1>
+
+            {orders.length === 0 ? (
+                <p className="text-center text-gray-500 text-lg">No orders yet</p>
+            ) : (
+                <div className="grid gap-6">
+                {orders.map((order) => (
+                    <div
+                    key={order.createdAt}
+                    className="bg-white rounded-xl border border-gray-200 shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
+                    >
+                    <div className="flex justify-between items-center mb-4">
+                        <h2 className="text-xl font-semibold text-gray-800">{order.username}</h2>
+                        <p className="text-sm text-gray-500">{new Date(order.createdAt).toLocaleString()}</p>
+                    </div>
+
+                    <p className="mb-2 text-gray-700 font-medium">
+                        Total: <span className="text-green-600">${order.totalPrice.toFixed(2)}</span>
+                    </p>
+
+                    <ul className="mt-3 space-y-2">
+                        {order.items.map((item) => (
+                        <li
+                            key={item.id}
+                            className="flex justify-between items-center bg-gray-50 rounded-lg p-3 border border-gray-100 shadow-sm"
+                        >
+                            <span className="font-medium text-gray-800">{item.title} x {item.quantity}</span>
+                            <span className="font-semibold text-gray-900">${item.totalPrice.toFixed(2)}</span>
+                        </li>
+                        ))}
+                    </ul>
+                    </div>
+                ))}
+                </div>
+            )}
+        </div>
+
+
   )
 }
