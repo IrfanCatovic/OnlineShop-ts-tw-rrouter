@@ -5,14 +5,31 @@ import (
 	"backend/router"
 	"log"
 	"net/http"
+
+	"github.com/rs/cors" // dodaj ovaj import
 )
 
 func main() {
+	// 1️⃣ Poveži se na MongoDB
 	db.Connect("mongodb+srv://catovicc84_db_user:kwLVPb7cPp530s5B@onlineshop.irsj1r6.mongodb.net/")
-	r := router.SetupRouter() //pravi sve rute
 
+	// 2️⃣ Setup router
+	r := router.SetupRouter() // tvoje rute
+
+	// 3️⃣ Konfiguriši CORS
+	c := cors.New(cors.Options{
+		AllowedOrigins:   []string{"http://localhost:5173"}, // frontend origin
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"*"},
+		AllowCredentials: true,
+	})
+
+	// 4️⃣ Wrap router sa CORS handlerom
+	handler := c.Handler(r)
+
+	// 5️⃣ Startuj server
 	log.Println("Server running on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", r)) //pali server - port :8080
+	log.Fatal(http.ListenAndServe(":8080", handler))
 }
 
 // main.go → pali server

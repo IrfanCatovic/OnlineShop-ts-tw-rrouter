@@ -12,11 +12,13 @@ import (
 
 // Strukture ostaju iste
 type OrderItem struct {
-	ID         string  `json:"id"`
-	Title      string  `json:"title"`
-	Price      float64 `json:"price"`
-	Quantity   int     `json:"quantity"`
-	TotalPrice float64 `json:"totalPrice"`
+	ID          int     `json:"id"`
+	Title       string  `json:"title"`
+	Price       float64 `json:"price"`
+	Quantity    int     `json:"quantity"`
+	TotalPrice  float64 `json:"totalPrice"`
+	Description string  `json:"description,omitempty"`
+	Image       string  `json:"image,omitempty"`
 }
 
 type Order struct {
@@ -34,7 +36,10 @@ func CreateOrder(w http.ResponseWriter, r *http.Request) {
 	// dekodovanje JSON-a
 	err := json.NewDecoder(r.Body).Decode(&order)
 	if err != nil {
-		http.Error(w, "Invalid request body", http.StatusBadRequest)
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(map[string]string{
+			"error": "Invalid request body",
+		})
 		return
 	}
 
@@ -48,7 +53,10 @@ func CreateOrder(w http.ResponseWriter, r *http.Request) {
 
 	_, err = collection.InsertOne(ctx, order)
 	if err != nil {
-		http.Error(w, "Failed to save order", http.StatusInternalServerError)
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(map[string]string{
+			"error": "Failed to save order",
+		})
 		log.Println("Mongo insert error:", err)
 		return
 	}

@@ -14,29 +14,35 @@ export default function CartOverview() {
     const navigate = useNavigate()
 
     const handleFinishShopping = async () => {
-        if (!username || cart.length === 0) return
+            if (!username || cart.length === 0) return
+            const order = {
+              username,
+              items: cart,
+              totalPrice,
+            }
+            try {
+              const res = await fetch("http://localhost:8080/orders", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(order),
+              })
+              const data = await res.json()
+              if (!res.ok) {
+                // backend error
+                console.log("Error: " + (data.error || "Something went wrong"))
+                return
+              }
+              // success
+              console.log(data.message)
+            } catch (err) {
+              console.error("Error sending order:", err)
 
-        const order = {
-          username,
-          items: cart,
-          totalPrice
-        }
+            }
+          }
 
-        try {
-          const res = await fetch("http://localhost:8080/orders", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(order)
-          })
 
-          const data = await res.json()
-          alert(data.message) // ili toast poruka
-        } catch (err) {
-          console.error("Error sending order:", err)
-        }
-    }
 
     //early return if we dont have user logged in
     if (!username) {
