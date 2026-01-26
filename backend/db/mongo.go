@@ -12,14 +12,33 @@ import (
 var Client *mongo.Client
 
 func Connect(uri string) {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	log.Println("POKUŠAVAM KONEKCIJU NA MONGODB...")
+	log.Println("URI (prvi deo):", uri[:50]+"...") // skrati da ne vidiš punu lozinku u logovima
+
+	// Dodajemo timeout i opcije
+	clientOptions := options.Client().
+		ApplyURI(uri).
+		SetConnectTimeout(10 * time.Second).
+		SetServerSelectionTimeout(10 * time.Second)
+
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
 	defer cancel()
 
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
+	client, err := mongo.Connect(ctx, clientOptions)
 	if err != nil {
-		log.Fatal("MongoDB connection error:", err)
+		log.Printf("MongoDB KONEKCIJA NEUSPEŠNA (connect error): %v", err)
+		log.Fatal("MongoDB connect failed → server se gasi") // ili samo return ako ne želiš crash
+	}
+
+	// Provera da li je konekcija zaista živa (ping)
+	err = client.Ping(ctx, nil)
+	if err != nil {
+		log.Printf("MongoDB PING NEUSPEŠAN: %v", err)
+		log.Fatal("MongoDB ping failed → konekcija nije validna")
 	}
 
 	Client = client
-	log.Println("Connected to MongoDB")
+
+	log.Println("MongoDB KONEKCIJA USPENA!")
+	log.Printf("Povezan na cluster, ping OK (timeout bio %v)", 15*time.Second)
 }
