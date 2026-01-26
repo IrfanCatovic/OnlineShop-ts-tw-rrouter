@@ -40,7 +40,7 @@ export default function CartOverview() {
               // success
               navigate('/')
               console.log(data.message)
-              alert("Cart is saved to MongoDB")
+
             } catch (err) {
               console.error("Error sending order:", err)
 
