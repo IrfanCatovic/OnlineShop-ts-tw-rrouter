@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/rs/cors" // dodaj ovaj import
+	"github.com/rs/cors"
 )
 
 func main() {
@@ -19,23 +19,23 @@ func main() {
 
 	// 3️⃣ Konfiguriši CORS
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"*"}, // frontend origin
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowedHeaders:   []string{"*"},
-		AllowCredentials: true,
+		// ⚡ Ako koristiš "*", mora AllowCredentials biti false
+		AllowedOrigins: []string{"*"},
+		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders: []string{"*"},
+		// AllowCredentials: true, // ukloni za "*" origin
 	})
 
 	// 4️⃣ Wrap router sa CORS handlerom
 	handler := c.Handler(r)
 
 	// 5️⃣ Startuj server
-	log.Println("Server running on http://localhost:8080")
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
 
-	log.Println("Listening on port", port)
+	log.Printf("Server running on port %s\n", port)
 	log.Fatal(http.ListenAndServe(":"+port, handler))
 }
 
