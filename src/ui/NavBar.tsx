@@ -5,47 +5,44 @@ export default function NavBar(){
     const navigate = useNavigate()
 
     return (
-        <div className="max-w-360 w-full h-16 border-b  border-gray-200">
-        <div className="h-full flex items-center justify-between">
-    
-    {/* Left - Username */}
-    <UserName />
+            <div className="sticky top-0 z-30 w-full border-b border-gray-200 bg-white/80 backdrop-blur-sm">
+              <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-4xl lg:px-8 xl:max-w-5xl">
+                <div className="flex h-14 items-center justify-between md:h-16">
 
-    {/* Right - Navigation */}
-    <div className="flex items-center gap-8">
-      
-      {/* Home */}
-      <span
-        onClick={() => navigate('/')}
-        className="relative cursor-pointer text-sm font-medium text-gray-500 transition-colors duration-300 hover:text-gray-900
-                   after:absolute after:left-0 after:-bottom-1 after:h-0.5  after:w-0 after:bg-gray-900
-                   after:transition-all after:duration-300 hover:after:w-full"
-      >
-        Home
-      </span>
+                  {/* Left - Username */}
+                  <div className="flex-shrink-0">
+                    <UserName />
+                  </div>
 
-      {/* Order Page */}
-      <span
-        onClick={() => navigate('/products')}
-        className="relative cursor-pointer text-sm font-medium text-gray-500 transition-colors duration-300 hover:text-gray-900
-                   after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gray-900
-                   after:transition-all after:duration-300 hover:after:w-full"
-      >
-        Products
-      </span>
+                  {/* Right - Navigation */}
+                  <nav className="flex items-center gap-5 sm:gap-7 md:gap-9 lg:gap-10">
+                    <span
+                      onClick={() => navigate('/')}
+                      className="group relative cursor-pointer text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 md:text-base"
+                    >
+                      Home
+                      <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gray-800 transition-all duration-300 group-hover:w-full" />
+                    </span>
 
-      <span
-        onClick={() => navigate('/cart')}
-        className="relative cursor-pointer text-sm font-medium text-gray-500 transition-colors duration-300 hover:text-gray-900
-                   after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-gray-900
-                   after:transition-all after:duration-300 hover:after:w-full"
-      >
-        Cart
-      </span>
+                    <span
+                      onClick={() => navigate('/products')}
+                      className="group relative cursor-pointer text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 md:text-base"
+                    >
+                      Products
+                      <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gray-800 transition-all duration-300 group-hover:w-full" />
+                    </span>
 
-    </div>
-  </div>
-</div>
+                    <span
+                      onClick={() => navigate('/cart')}
+                      className="group relative cursor-pointer text-sm font-medium text-gray-600 transition-colors hover:text-gray-900 md:text-base"
+                    >
+                      Cart
+                      <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gray-800 transition-all duration-300 group-hover:w-full" />
+                    </span>
+                  </nav>
 
-    );
-}
+                </div>
+              </div>
+            </div>
+          );
+        }
