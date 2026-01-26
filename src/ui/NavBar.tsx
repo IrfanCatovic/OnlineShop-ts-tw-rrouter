@@ -10,7 +10,7 @@ export default function NavBar(){
                 <div className="flex h-14 items-center justify-between md:h-16">
 
                   {/* Left - Username */}
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <UserName />
                   </div>
 
