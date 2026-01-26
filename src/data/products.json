@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "Fjallraven Kånken Classic Backpack 16L",
+    "price": 109.95,
+    "description": "Your perfect everyday backpack – lightweight, durable and timeless design",
+    "category": "men's clothing",
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
+    "rating": { "rate": 4.2, "count": 145 }
+  },
+  {
+    "id": 2,
+    "title": "Premium Slim Fit Cotton T-Shirt – Navy",
+    "price": 24.99,
+    "description": "Soft premium cotton, slim fit, perfect for casual everyday wear",
+    "category": "men's clothing",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&q=80",
+    "rating": { "rate": 4.4, "count": 310 }
+  },
+  {
+    "id": 3,
+    "title": "Water-Resistant Hooded Jacket – Olive Green",
+    "price": 79.99,
+    "description": "Lightweight, windproof and water-resistant – ideal for spring and autumn",
+    "category": "men's clothing",
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800&q=80",
+    "rating": { "rate": 4.6, "count": 420 }
+  },
+  {
+    "id": 4,
+    "title": "Relaxed Fit Chino Pants – Beige",
+    "price": 49.99,
+    "description": "Comfortable cotton blend chinos with modern relaxed fit",
+    "category": "men's clothing",
+    "image": "https://images.unsplash.com/photo-1602293589930-45aad59ba3ab?w=800&q=80",
+    "rating": { "rate": 4.1, "count": 280 }
+  },
+  {
+    "id": 5,
+    "title": "Sterling Silver Dragon Chain Bracelet",
+    "price": 189.00,
+    "description": "Elegant dragon motif bracelet in sterling silver – timeless and bold",
+    "category": "jewelery",
+    "image": "https://images.unsplash.com/photo-1611590027211-b954fd027b51?w=800&q=80",
+    "rating": { "rate": 4.7, "count": 185 }
+  },
+  {
+    "id": 6,
+    "title": "14K Gold Petite Pavé Diamond Ring",
+    "price": 249.00,
+    "description": "Delicate micropavé diamond ring in solid 14K gold – perfect everyday piece",
+    "category": "jewelery",
+    "image": "https://images.pexels.com/photos/8387137/pexels-photo-8387137.jpeg?w=800",
+    "rating": { "rate": 4.8, "count": 95 }
+  },
+  {
+    "id": 7,
+    "title": "Princess Cut Moissanite Solitaire Ring",
+    "price": 129.00,
+    "description": "Stunning princess cut moissanite in classic solitaire setting",
+    "category": "jewelery",
+    "image": "https://images.pexels.com/photos/30829160/pexels-photo-30829160.jpeg?w=800",
+    "rating": { "rate": 4.5, "count": 210 }
+  },
+  {
+    "id": 8,
+    "title": "Rose Gold Hoop Earrings 18K Plated",
+    "price": 34.99,
+    "description": "Classic medium-sized hoop earrings with rose gold finish",
+    "category": "jewelery",
+    "image": "https://images.unsplash.com/photo-1611590027211-b954fd027b51?w=800&q=80",
+    "rating": { "rate": 4.3, "count": 165 }
+  },
+  {
+    "id": 9,
+    "title": "Samsung T7 Shield 2TB Portable SSD",
+    "price": 179.99,
+    "description": "Rugged, drop-resistant portable SSD with USB 3.2 Gen 2 speeds",
+    "category": "electronics",
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    "rating": { "rate": 4.7, "count": 340 }
+  },
+  {
+    "id": 10,
+    "title": "Crucial P3 Plus 1TB NVMe SSD",
+    "price": 89.99,
+    "description": "Blazing fast PCIe Gen4 NVMe SSD for gaming and content creation",
+    "category": "electronics",
+    "image": "https://images.unsplash.com/photo-1588109273901-15e0d9280b7e?w=800&q=80",
+    "rating": { "rate": 4.6, "count": 280 }
+  }
+]

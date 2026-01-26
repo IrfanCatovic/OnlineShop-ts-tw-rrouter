@@ -23,7 +23,7 @@ export default function OrdersPage() {
     const fetchOrders = async () => {
       setLoading(true)
       try {
-        const res = await fetch("http://localhost:8080/orders")
+        const res = await fetch("https://onlineshop-s9xt.onrender.com/orders")
         const data = await res.json()
         setOrders(data)
       } catch (err) {

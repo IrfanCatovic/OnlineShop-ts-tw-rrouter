@@ -20,11 +20,16 @@ func main() {
 
 	// 3️⃣ Konfiguriši CORS
 	c := cors.New(cors.Options{
-		// ⚡ Ako koristiš "*", mora AllowCredentials biti false
-		AllowedOrigins:   []string{"*"},
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowedHeaders:   []string{"*"},
-		AllowCredentials: true, // ukloni za "*" origin
+		AllowedOrigins: []string{
+			"http://localhost:5173",            // lokalni Vite dev server
+			"https://tvoj-frontend.vercel.app", // ako deploy-uješ frontend na Vercel
+			// dodaj još ako treba npr. "https://tvoj-domen.com"
+		},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"},
+		AllowedHeaders:   []string{"Content-Type", "Authorization", "Accept", "*"},
+		AllowCredentials: true, // ako koristiš cookies ili auth sa credentials
+		ExposedHeaders:   []string{"Content-Length"},
+		MaxAge:           600, // kešira preflight 10 min
 	})
 
 	// 4️⃣ Wrap router sa CORS handlerom

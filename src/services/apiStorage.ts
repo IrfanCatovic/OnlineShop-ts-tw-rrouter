@@ -1,10 +1,11 @@
-const API_URL = "https://fakestoreapi.com/products"
+// src/services/api.ts  (ili gde god da ti je getStorage funkcija)
+
+import productsData from '../data/products.json';   // ← ovo je ključna linija
 
 export async function getStorage() {
-    const res = await fetch(`${API_URL}`)
+  // Simuliraj malo čekanje da izgleda kao pravi API (nije obavezno, ali je lepo)
+  await new Promise(resolve => setTimeout(resolve, 300));
 
-    if(!res.ok) throw Error("Failed to get StorageAPI");
-
-    const data = await res.json();
-    return data
+  // Vrati podatke iz lokalnog JSON fajla
+  return productsData;
 }

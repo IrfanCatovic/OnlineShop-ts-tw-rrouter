@@ -24,7 +24,7 @@ export default function CartOverview() {
             }
             try {
               setLoading(true);
-              const res = await fetch("http://localhost:8080/orders", {
+              const res = await fetch("https://onlineshop-s9xt.onrender.com/orders", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
