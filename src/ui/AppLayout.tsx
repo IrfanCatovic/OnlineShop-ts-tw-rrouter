@@ -23,7 +23,7 @@ export default function AppLayout() {
 
       {/* MAIN CONTENT */}
       <div className="overflow-x-hidden">
-        <main className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-6 md:py-10">
+        <main className="mx-auto w-full max-w-350 px-4 sm:px-6 lg:px-8 py-6 md:py-10">
           <Outlet />
         </main>
       </div>

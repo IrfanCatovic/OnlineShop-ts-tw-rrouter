@@ -6,7 +6,7 @@ export default function NavBar(){
 
     return (
             <div className="sticky top-0 z-30 w-full border-b border-gray-200 bg-white/80 backdrop-blur-sm">
-              <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-4xl lg:px-8 xl:max-w-5xl">
+              <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-4xl lg:px-8 xl:max-w-6xl">
                 <div className="flex h-14 items-center justify-between md:h-16">
 
                   {/* Left - Username */}
