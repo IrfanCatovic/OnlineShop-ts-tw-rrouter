@@ -12,7 +12,7 @@ import (
 
 func main() {
 	// 1️⃣ Poveži se na MongoDB
-	db.Connect("mongodb+srv://catovicc84_db_user:kwLVPb7cPp530s5B@onlineshop.irsj1r6.mongodb.net/")
+	db.Connect("mongodb+srv://catovicc84_db_user:kwLVPb7cPp530s5B@onlineshop.irsj1r6.mongodb.net/?retryWrites=true&w=majority")
 
 	// 2️⃣ Setup router
 	r := router.SetupRouter() // tvoje rute
