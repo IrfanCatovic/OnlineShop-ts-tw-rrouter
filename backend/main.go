@@ -5,6 +5,7 @@ import (
 	"backend/router"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/rs/cors" // dodaj ovaj import
 )
@@ -29,7 +30,13 @@ func main() {
 
 	// 5️⃣ Startuj server
 	log.Println("Server running on http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080", handler))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Println("Listening on port", port)
+	log.Fatal(http.ListenAndServe(":"+port, handler))
 }
 
 // main.go → pali server
