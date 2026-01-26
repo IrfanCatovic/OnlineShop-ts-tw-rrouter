@@ -16,7 +16,8 @@ export default function Welcome() {
             </p>
             
             </div>
-            <button onClick={()=> navigate('/products')} className="w-xl rounded-xl bg-green-500 px-6 py-2 text-sm font-semibold text-black hover:bg-green-400 transition">
+            <button onClick={()=> navigate('/products')} className=" w-[320px] rounded-xl sm:w-xl bg-green-500 px-6 
+            py-2 text-sm font-semibold text-black hover:bg-green-400 transition ">
                     Shop now! 🛒
                 </button>
             <OrdersPage />
