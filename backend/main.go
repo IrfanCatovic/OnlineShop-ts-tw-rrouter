@@ -1,43 +1,37 @@
 package main
 
 import (
-	"log"
-	"net/http"
-	"os"
-
 	"backend/db"
 	"backend/router"
+	"log"
+	"net/http"
 
-	"github.com/rs/cors"
+	"github.com/rs/cors" // dodaj ovaj import
 )
 
 func main() {
-	// ✅ 1. Učitaj Mongo URI iz ENV (OBAVEZNO za Render)
-	mongoURI := os.Getenv("MONGODB_URI")
-	if mongoURI == "" {
-		log.Fatal("MONGODB_URI is not set")
-	}
+	// 1️⃣ Poveži se na MongoDB
+	db.Connect("mongodb+srv://catovicc84_db_user:kwLVPb7cPp530s5B@onlineshop.irsj1r6.mongodb.net/")
 
-	db.Connect(mongoURI)
+	// 2️⃣ Setup router
+	r := router.SetupRouter() // tvoje rute
 
-	// ✅ 2. Setup router
-	r := router.SetupRouter()
-
-	// ✅ 3. CORS (dozvoli svima za sad)
+	// 3️⃣ Konfiguriši CORS
 	c := cors.New(cors.Options{
-		AllowedOrigins: []string{"*"},
-		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowedHeaders: []string{"*"},
+		AllowedOrigins:   []string{"http://localhost:5173"}, // frontend origin
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"*"},
+		AllowCredentials: true,
 	})
 
+	// 4️⃣ Wrap router sa CORS handlerom
 	handler := c.Handler(r)
 
-	// ✅ 4. Render koristi PORT env
-	port := os.Getenv("PORT")
-	if port == "" {
-		port = "8080"
-	}
-
-	log.Println("Server running on port", port)
-	log.Fatal(http.ListenAndServe(":"+port, handler))
+	// 5️⃣ Startuj server
+	log.Println("Server running on http://localhost:8080")
+	log.Fatal(http.ListenAndServe(":8080", handler))
 }
+
+// main.go → pali server
+// router → govori koju rutu gde
+// handlers → šta se stvarno dešava
