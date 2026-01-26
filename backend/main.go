@@ -20,10 +20,10 @@ func main() {
 	// 3️⃣ Konfiguriši CORS
 	c := cors.New(cors.Options{
 		// ⚡ Ako koristiš "*", mora AllowCredentials biti false
-		AllowedOrigins: []string{"*"},
-		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
-		AllowedHeaders: []string{"*"},
-		// AllowCredentials: true, // ukloni za "*" origin
+		AllowedOrigins:   []string{"*"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedHeaders:   []string{"*"},
+		AllowCredentials: true, // ukloni za "*" origin
 	})
 
 	// 4️⃣ Wrap router sa CORS handlerom
