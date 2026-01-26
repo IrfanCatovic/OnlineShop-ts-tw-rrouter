@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux"
 import type { RootState } from "../store"
-import { Navigate, useLoaderData, useNavigate } from "react-router"
+import { Navigate, useLoaderData } from "react-router"
 import { getStorage } from "../services/apiStorage"
 import type { Product } from "../features/Storage/ProductsSlice";
 
 import ProductItem from "../features/Storage/ProductItem"
-import { getTotalCartPrice, getTotalCartQuantity } from "../features/Cart/cartSlice";
+import { getTotalCartQuantity } from "../features/Cart/cartSlice";
 import CartBar from "../ui/CartBar";
 
 
@@ -14,7 +14,7 @@ export default function Products(){
     const products = useLoaderData() as Product[];
     const username = useSelector((state: RootState) => state.user.username)
     const quantity = useSelector(getTotalCartQuantity)
-    const totalPrice = useSelector(getTotalCartPrice)
+
 
     if (!username) {
     return <Navigate to="/" replace />

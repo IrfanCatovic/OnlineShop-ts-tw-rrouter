@@ -8,9 +8,6 @@ import HomePage from './Pages/HomePage'
 import Products, {loader as productsLoader} from "./Pages/Products";
 import CartOverview from './features/Cart/CartOverview'
 
-
-
-
 const router = createBrowserRouter([
   { element: <AppLayout />,
     errorElement: <ErrorPage />,

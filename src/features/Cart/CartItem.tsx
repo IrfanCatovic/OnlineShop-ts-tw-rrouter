@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import type { Product } from "../Storage/ProductsSlice";
 import { getCurrentQuantityById } from "./cartSlice";
 
