@@ -9,11 +9,11 @@ type CartItemProps = {
 
 
 export default function CartItem({ cartItem } : CartItemProps) {
-    const dispatch = useDispatch()
+
 
     const { id, title, price, description, image } = cartItem;
     const currentQuantity = useSelector(getCurrentQuantityById(id))
-    const isInCart = currentQuantity > 0;
+
 
 
     
