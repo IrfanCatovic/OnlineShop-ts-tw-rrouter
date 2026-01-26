@@ -10,6 +10,7 @@ import (
 	"github.com/rs/cors"
 )
 
+// dodali smo na whitelist u mongoDB 0.0.0.0/0 to znaci acces odakle hoces
 func main() {
 	// 1️⃣ Poveži se na MongoDB
 	db.Connect("mongodb+srv://catovicc84_db_user:kwLVPb7cPp530s5B@onlineshop.irsj1r6.mongodb.net/?retryWrites=true&w=majority")
