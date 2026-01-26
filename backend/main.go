@@ -23,7 +23,7 @@ func main() {
 		AllowedOrigins:   []string{"*"},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"},
 		AllowedHeaders:   []string{"Content-Type", "Authorization", "Accept", "*"},
-		AllowCredentials: true, // ako koristiš cookies ili auth sa credentials
+		AllowCredentials: false, // ako koristiš cookies ili auth sa credentials
 		ExposedHeaders:   []string{"Content-Length"},
 		MaxAge:           600, // kešira preflight 10 min
 	})
