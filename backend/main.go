@@ -21,8 +21,8 @@ func main() {
 	// 3️⃣ Konfiguriši CORS
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{
-			"http://localhost:5173",            // lokalni Vite dev server
-			"https://tvoj-frontend.vercel.app", // ako deploy-uješ frontend na Vercel
+			"http://localhost:5173",             // lokalni Vite dev server
+			"https://onlineshopts.netlify.app/", // ako deploy-uješ frontend na Vercel
 			// dodaj još ako treba npr. "https://tvoj-domen.com"
 		},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"},
