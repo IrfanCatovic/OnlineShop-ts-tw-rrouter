@@ -7,12 +7,11 @@ import (
 	"net/http"
 	"time"
 
-	"backend/db" // ovo je tvoj mongo client
+	"backend/db" // db client
 
 	"go.mongodb.org/mongo-driver/bson"
 )
 
-// Strukture ostaju iste
 type OrderItem struct {
 	ID          int     `json:"id"`
 	Title       string  `json:"title"`
@@ -45,10 +44,10 @@ func CreateOrder(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// dodaj timestamp
+	// I use this for timestamp when we finished shoping
 	order.CreatedAt = time.Now().Format(time.RFC3339)
 
-	// upis u MongoDB
+	//mongoDB write
 	collection := db.Client.Database("myshop").Collection("orders")
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
@@ -63,7 +62,7 @@ func CreateOrder(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// potvrda za frontend
+	//respnse from frontend
 	json.NewEncoder(w).Encode(map[string]string{
 		"message": "Order received successfully",
 	})
@@ -76,7 +75,7 @@ func GetOrders(w http.ResponseWriter, r *http.Request) {
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
-	cursor, err := collection.Find(ctx, bson.M{}) // prazni filter = sve dokumente
+	cursor, err := collection.Find(ctx, bson.M{})
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		json.NewEncoder(w).Encode(map[string]string{

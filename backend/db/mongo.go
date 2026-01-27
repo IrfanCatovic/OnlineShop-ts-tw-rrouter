@@ -13,9 +13,9 @@ var Client *mongo.Client
 
 func Connect(uri string) {
 	log.Println("POKUŠAVAM KONEKCIJU NA MONGODB...")
-	log.Println("URI (prvi deo):", uri[:50]+"...") // skrati da ne vidiš punu lozinku u logovima
+	log.Println("URI (prvi deo):", uri[:50]+"...")
 
-	// Dodajemo timeout i opcije
+	//I add timestamp and option
 	clientOptions := options.Client().
 		ApplyURI(uri).
 		SetConnectTimeout(10 * time.Second).
@@ -27,10 +27,9 @@ func Connect(uri string) {
 	client, err := mongo.Connect(ctx, clientOptions)
 	if err != nil {
 		log.Printf("MongoDB KONEKCIJA NEUSPEŠNA (connect error): %v", err)
-		log.Fatal("MongoDB connect failed → server se gasi") // ili samo return ako ne želiš crash
+		log.Fatal("MongoDB connect failed → server se gasi")
 	}
 
-	// Provera da li je konekcija zaista živa (ping)
 	err = client.Ping(ctx, nil)
 	if err != nil {
 		log.Printf("MongoDB PING NEUSPEŠAN: %v", err)

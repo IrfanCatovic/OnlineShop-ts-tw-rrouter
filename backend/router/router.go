@@ -10,8 +10,8 @@ import (
 func SetupRouter() *mux.Router {
 	r := mux.NewRouter()
 
-	r.HandleFunc("/orders", handlers.CreateOrder).Methods("POST") // Kada dođe POST /orders → pozovi CreateOrder koji se nalazi u other_handler
-	r.HandleFunc("/orders", handlers.GetOrders).Methods("GET")    // citam sve iz db
+	r.HandleFunc("/orders", handlers.CreateOrder).Methods("POST") // When we finish shoping, sends to backend
+	r.HandleFunc("/orders", handlers.GetOrders).Methods("GET")    // get all previous carts
 	r.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("pong"))
 	}).Methods("GET")

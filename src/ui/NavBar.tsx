@@ -9,12 +9,12 @@ export default function NavBar(){
               <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-4xl lg:px-8 xl:max-w-6xl">
                 <div className="flex h-14 items-center justify-between md:h-16">
 
-                  {/* Left - Username */}
+                  {/* Username */}
                   <div className="shrink-0">
                     <UserName />
                   </div>
 
-                  {/* Right - Navigation */}
+                  {/* Navigation */}
                   <nav className="flex items-center gap-5 sm:gap-7 md:gap-9 lg:gap-10">
                     <span
                       onClick={() => navigate('/')}
