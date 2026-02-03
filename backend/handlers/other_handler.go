@@ -30,7 +30,7 @@ type Order struct {
 }
 
 func CreateOrder(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
+	w.Header().Set("Content-Type", "application/json") 
 
 	var order Order
 
