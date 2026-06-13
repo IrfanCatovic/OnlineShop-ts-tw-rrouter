@@ -9,3 +9,5 @@ export async function getStorage() {
 
   return productsData;
 }
+
+//ovo mora u ponedeljak da se izmeni
